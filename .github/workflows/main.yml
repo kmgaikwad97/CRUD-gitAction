@@ -19,7 +19,8 @@ jobs:
           docker push kshitijg/sample:$GITHUB_REF_NAME-$GITHUB_SHA
       - name: Update manifest file
         run: |
-          git clone https://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@github.com/kshitijwohlig/gitops.git
+          git clone https://${{ secrets.GITHUBTOKEN }}@github.com/kshitijwohlig/gitops.git
+          echo ${{ secrets.GITHUBTOKEN }}
           cd gitops
           git checkout main
           git config user.name "kshitijwohlig"
@@ -27,4 +28,5 @@ jobs:
           yq e '.spec.template.spec.containers[0].image = "kshitijg/sample:${{ env.GITHUB_BRANCH }}"' -i deplyments.yaml
           git add .
           git commit -m "updating newer image"
+          git status
           git push origin main
