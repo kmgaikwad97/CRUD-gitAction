@@ -24,7 +24,7 @@ jobs:
           git checkout main
           git config user.name "kshitijwohlig"
           git config user.email "kshitij.gaikwad@wohlig.com"
-          yq e '.spec.template.spec.containers[0].image = "kshitijg/sample:${{ env.GITHUB_BRANCH }}"' -i deplyments.yaml
+          yq e '.spec.template.spec.containers[0].image = "kshitijwohlig/sample:${{ env.GITHUB_BRANCH }}"' -i deplyments.yaml
           git add .
           git commit -m "updating newer image"
           git push origin main
