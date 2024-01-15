@@ -17,9 +17,9 @@ const router = require("./router/routesOld");
 const cors = require("cors");
 const morgan = require("morgan");
 
-// app.get('/',(req,res)=>{
-//     res.send('Home Page')
-// });
+app.get('/',(req,res)=>{
+    res.send('Home Page')
+});
 
 app.use(express.json());
 //  It parses incoming JSON requests and puts the parsed data in req.body.
