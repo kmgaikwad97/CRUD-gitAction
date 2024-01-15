@@ -14,9 +14,9 @@ jobs:
  
       - name: Build Docker image
         run: |
-          docker login -u insaneprotestor -p kmgkmg@25
-          docker build -t insaneprotestor/sample:$GITHUB_REF_NAME-$GITHUB_SHA .
-          docker push insaneprotestor/sample:$GITHUB_REF_NAME-$GITHUB_SHA
+          docker login -u kshitijg -p kmgkmg@25
+          docker build -t kshitijg/sample:$GITHUB_REF_NAME-$GITHUB_SHA .
+          docker push kshitijg/sample:$GITHUB_REF_NAME-$GITHUB_SHA
       - name: Update manifest file
         run: |
           git clone https://github.com/kshitijwohlig/gitops.git
@@ -24,7 +24,7 @@ jobs:
           git checkout main
           git config user.name "kshitijwohlig"
           git config user.email "kshitij.gaikwad@wohlig.com"
-          yq e '.spec.template.spec.containers[0].image = "insaneprotestor/sample:${{ env.GITHUB_BRANCH }}"' -i deployment.yaml
+          yq e '.spec.template.spec.containers[0].image = "kshitijg/sample:${{ env.GITHUB_BRANCH }}"' -i deployment.yaml
           git add .
           git commit -m "updating newer image"
           git push origin main
