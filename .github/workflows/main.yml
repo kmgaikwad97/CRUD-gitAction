@@ -19,7 +19,7 @@ jobs:
           docker push kshitijg/sample:$GITHUB_REF_NAME-$GITHUB_SHA
       - name: Update manifest file
         run: |
-          git clone https://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@github.com/kshitijwohlig/gitops.git
+          git clone https://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@github.com/kshitijwohlig/gitops.git
           cd gitops
           git checkout main
           git config user.name "kshitijwohlig"
