@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 // const dbLink = process.env.DBN;
 // const DB = `mongodb+srv://kshitij123:kshitij123@cluster0.kwwil.mongodb.net/kshitij1234?retryWrites=true&w=majority`
 // const DB = `${dbLink}`;
-console.log(process.env.DBN,"sdf")
 mongoose
   .connect(process.env.DBN)
   .then(() => {
